@@ -7,6 +7,7 @@ public class Rectangle extends Shape {
         super(color ,x,y,length ,height);
     }
 
+    @Override
     public void paintComponent(Graphics g) {
         g.setColor(color);
         g.fillRect(0, 0, length, height);

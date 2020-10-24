@@ -56,14 +56,12 @@ public class Pane extends JPanel {
 
     public Pane() {
         setLayout(null);
-        setSize(PANE_LENGTH, PANE_HEIGHT);
-        setVisible(true);
         addShapes();
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(Shape component:myShapes) remove(component);
                 myShapes.clear();
+                remove(button);
                 addShapes();
                 repaint();
             }
@@ -76,7 +74,16 @@ public class Pane extends JPanel {
         for (int i = 0; i < 20; i++) {
             Shape shape = generate();
             myShapes.add(shape);
-            add(shape);
         }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        for (Shape shape : myShapes) {
+            shape.paintComponents(g);
+        }
+
     }
 }

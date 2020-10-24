@@ -17,7 +17,6 @@ public class MyWindow extends JFrame{
     }
 
     public static void main(String[] args) {
-        setDefaultLookAndFeelDecorated(true);
         MyWindow wnd =new MyWindow();
     }
 
